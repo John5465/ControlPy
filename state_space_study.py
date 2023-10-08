@@ -1,6 +1,6 @@
 import sympy
-from sympy import init_session
-init_session(quiet=True) 
+# from sympy import init_session
+# init_session(quiet=True) 
 
 t, s = sympy.symbols('t s')
 x = sympy.Function('x')
@@ -19,4 +19,5 @@ Gs = 1 / (m * s**2 + b * s + k)
 z1 = x(t)
 z2 = z1.diff(t)
 
+z1
 z2
