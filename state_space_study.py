@@ -16,8 +16,17 @@ f_lap = sympy.laplace_transform(f, t, s)
 # 传递函数 X(s) / F(s)
 Gs = 1 / (m * s**2 + b * s + k)
 
-z1 = x(t)
-z2 = z1.diff(t)
+# ===============
+# state space
+# 令 z1 = x, z2 = dx/dt
+#    z1_dot = z2, z2_dot = d2x/dt2
+A = sympy.Matrix([[0,       1],
+                  [-k/m, -b/m]])
+B = sympy.Matrix([0, 1/m])
+C = sympy.Matrix([1, 0])
+D = sympy.Matrix([0])
+I = sympy.eye(2,2)
 
-z1
-z2
+f_tran = C.T*((s*I-A).inv())*B
+
+f_tran
