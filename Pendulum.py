@@ -26,6 +26,6 @@ if __name__ == "__main__":
     ax = phase_portrait.draw_phase_portrait()
     
     x0 = [1., 5.]
-    phase_portrait.draw_trajectory(ax, x0, t_end=1000.)
+    phase_portrait.draw_trajectory(ax, x0, t_end=10.)
     
     plt.show()
