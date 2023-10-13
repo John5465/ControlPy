@@ -2,16 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PhasePortrait2D import PhasePortrait2D
 
-#epsilon = 1e-4
-
 class SpringDamperSystem(object):
     def __init__(self):
-        self._m = 1.        # mass
-        self._alpha = 0.2   # damper coef
+        self._m = 1.0
+        self._k = 0.2
+        self._b = 0.5
     
     def f_sys(self, X:np.array=np.array([0., 0.]), t=0., u:float=0.) -> np.array:
         X = np.array(X)
-        #X[np.abs(X) < epsilon] = 0.
         return self.f_state(X) + self.f_input(u)
     
     def f_state(self, X) -> np.array:
